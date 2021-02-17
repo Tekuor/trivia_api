@@ -12,7 +12,7 @@ class QuizView extends Component {
         quizCategory: null,
         previousQuestions: [], 
         showAnswer: false,
-        categories: {},
+        categories: [],
         numCorrect: 0,
         currentQuestion: {},
         guess: '',
@@ -100,19 +100,20 @@ class QuizView extends Component {
   }
 
   renderPrePlay(){
+    const { categories } = this.state
       return (
           <div className="quiz-play-holder">
               <div className="choose-header">Choose Category</div>
               <div className="category-holder">
                   <div className="play-category" onClick={this.selectCategory}>ALL</div>
-                  {Object.keys(this.state.categories).map(id => {
+                  {categories.map(category => {
                   return (
                     <div
-                      key={id}
-                      value={id}
+                      key={category.id}
+                      value={category.id}
                       className="play-category"
-                      onClick={() => this.selectCategory({type:this.state.categories[id], id})}>
-                      {this.state.categories[id]}
+                      onClick={() => this.selectCategory({type:category.type, id:category.id})}>
+                      {category.type}
                     </div>
                   )
                 })}
@@ -132,7 +133,7 @@ class QuizView extends Component {
 
   evaluateAnswer = () => {
     const formatGuess = this.state.guess.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase()
-    const answerArray = this.state.currentQuestion.answer.toLowerCase().split(' ');
+    const answerArray = this.state.currentQuestion.answer.toLowerCase();
     return answerArray.includes(formatGuess)
   }
 
