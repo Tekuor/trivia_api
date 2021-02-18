@@ -192,8 +192,8 @@ def create_app(test_config=None):
     current_questions = paginate_questions(request, selection)
     category = Category.query.filter(Category.id == category_id).one_or_none()
 
-    # if len(current_questions) == 0:
-    #   abort(404)
+    if len(current_questions) == 0:
+      abort(404)
 
     return jsonify({
       'success': True,
