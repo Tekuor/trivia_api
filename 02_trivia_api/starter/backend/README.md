@@ -70,6 +70,21 @@ One note before you delve into your tasks: for each endpoint you are expected to
 * Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, http://127.0.0.1:5000/, which is set as a proxy in the frontend configuration.
 * Authentication: This version of the application does not require authentication or API keys.
 
+## Error Handling
+Errors are returned as JSON objects in the following format:
+
+```bash
+{
+    "success": False, 
+    "error": 404,
+    "message": "resource not found"
+}
+The API will return two error types when requests fail:
+
+404: Resource Not Found
+422: Not Processable
+```
+
 REVIEW_COMMENT
 ```
 This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
