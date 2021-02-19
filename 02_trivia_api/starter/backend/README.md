@@ -85,6 +85,42 @@ The API will return two error types when requests fail:
 422: Not Processable
 ```
 
+## GET /categories
+General:
+Returns a list of category objects and success value
+Sample: curl http://127.0.0.1:5000/categories
+
+```bash
+"categories": [
+    {
+      "id": 1,
+      "type": "Science"
+    },
+    {
+      "id": 2,
+      "type": "Art"
+    },
+    {
+      "id": 3,
+      "type": "Geography"
+    },
+    {
+      "id": 4,
+      "type": "History"
+    },
+    {
+      "id": 5,
+      "type": "Entertainment"
+    },
+    {
+      "id": 6,
+      "type": "Sports"
+    }
+  ],
+"success": true
+}
+```
+
 REVIEW_COMMENT
 ```
 This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
