@@ -315,7 +315,7 @@ curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json"
 }
 ```
 
-## DELETE /questions/{book_id}
+## DELETE /questions/{question_id}
 General:
 Deletes the question of the given ID if it exists. Returns the id of the deleted question, success value, total questions, and question list based on current page number to update the frontend.
 curl -X DELETE http://127.0.0.1:5000/questions/26
@@ -435,6 +435,26 @@ Sample: curl http://127.0.0.1:5000/categories/1/questions
   ], 
   "success": true, 
   "total_questions": 3
+}
+```
+## POST /questions/search
+General:
+Returns a list of questions, success value, total questions based on the submitted searchTerm.
+curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"organ"}'
+
+```bash
+{
+  "questions": [
+    {
+      "answer": "The Liver", 
+      "category": 1, 
+      "difficulty": 4, 
+      "id": 20, 
+      "question": "What is the heaviest organ in the human body?"
+    }
+  ], 
+  "success": true, 
+  "total_questions": 1
 }
 ```
 
