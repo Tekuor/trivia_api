@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 import '../stylesheets/QuizView.css';
 
-const questionsPerPlay = 5; 
+// const questionsPerPlay = 5; 
 
 class QuizView extends Component {
   constructor(props){
@@ -16,7 +16,8 @@ class QuizView extends Component {
         numCorrect: 0,
         currentQuestion: {},
         guess: '',
-        forceEnd: false
+        forceEnd: false,
+        questionsPerPlay: 5
     }
   }
 
@@ -41,6 +42,10 @@ class QuizView extends Component {
 
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value})
+  }
+
+  handlePerPlayChange = (event) => {
+    this.setState({questionsPerPlay: event.target.value})
   }
 
   getNextQuestion = () => {
@@ -103,6 +108,8 @@ class QuizView extends Component {
     const { categories } = this.state
       return (
           <div className="quiz-play-holder">
+              <div className="category-holder">Questions Per Play</div>
+              <input class="per-play-input" value={this.state.questionsPerPlay} type="number" min="1" name="questionPerPlay" onChange={this.handlePerPlayChange}/>
               <div className="choose-header">Choose Category</div>
               <div className="category-holder">
                   <div className="play-category" onClick={this.selectCategory}>ALL</div>
@@ -151,7 +158,7 @@ class QuizView extends Component {
   }
 
   renderPlay(){
-    return this.state.previousQuestions.length === questionsPerPlay || this.state.forceEnd
+    return this.state.previousQuestions.length === parseInt(this.state.questionsPerPlay) || this.state.forceEnd
       ? this.renderFinalScore()
       : this.state.showAnswer 
         ? this.renderCorrectAnswer()

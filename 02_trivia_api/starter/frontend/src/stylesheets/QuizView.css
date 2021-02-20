@@ -15,6 +15,10 @@
     font-weight: bold;
 }
 
+.per-play-input {
+    margin-bottom: 40px;
+}
+
 .play-category:hover {
     color: dodgerblue;
 }
