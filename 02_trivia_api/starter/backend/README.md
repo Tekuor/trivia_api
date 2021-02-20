@@ -439,7 +439,7 @@ Sample: curl http://127.0.0.1:5000/categories/1/questions
 ```
 ## POST /questions/search
 General:
-Returns a list of questions, success value, total questions based on the submitted searchTerm.
+Returns a list of question objects, success value, total questions based on the submitted searchTerm.
 curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: application/json" -d '{"searchTerm":"organ"}'
 
 ```bash
@@ -455,6 +455,24 @@ curl http://127.0.0.1:5000/questions/search -X POST -H "Content-Type: applicatio
   ], 
   "success": true, 
   "total_questions": 1
+}
+```
+
+## POST /quizzes
+General:
+Returns a question object and success value based on the submitted previous_questions and quiz_category.
+curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions":[],"quiz_category":{"type":"Science","id":1}}'
+
+```bash
+{
+  "question": {
+    "answer": "Blood", 
+    "category": 1, 
+    "difficulty": 4, 
+    "id": 22, 
+    "question": "Hematology is a branch of medicine involving the study of what?"
+  }, 
+  "success": true
 }
 ```
 
