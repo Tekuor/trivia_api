@@ -399,6 +399,45 @@ curl -X DELETE http://127.0.0.1:5000/questions/26
 }
 ```
 
+## GET /categories/{category_id}/questions
+General:
+Returns a list of question objects, success value, current category object and total number of questions in that category
+Sample: curl http://127.0.0.1:5000/categories/1/questions
+
+```bash
+{
+  "current_category": {
+    "id": 1, 
+    "type": "Science"
+  }, 
+  "questions": [
+    {
+      "answer": "The Liver", 
+      "category": 1, 
+      "difficulty": 4, 
+      "id": 20, 
+      "question": "What is the heaviest organ in the human body?"
+    }, 
+    {
+      "answer": "Alexander Fleming", 
+      "category": 1, 
+      "difficulty": 3, 
+      "id": 21, 
+      "question": "Who discovered penicillin?"
+    }, 
+    {
+      "answer": "Blood", 
+      "category": 1, 
+      "difficulty": 4, 
+      "id": 22, 
+      "question": "Hematology is a branch of medicine involving the study of what?"
+    }
+  ], 
+  "success": true, 
+  "total_questions": 3
+}
+```
+
 REVIEW_COMMENT
 ```
 This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
