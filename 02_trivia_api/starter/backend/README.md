@@ -230,9 +230,9 @@ Sample: curl http://127.0.0.1:5000/questions
 }
 ```
 
-## POST /books
+## POST /questions
 General:
-Creates a new question using the submitted title, author and rating. Returns the id of the created book, success value, total books, and book list based on current page number to update the frontend.
+Creates a new question using the submitted question, answer, difficulty and category. Returns the id of the created question, success value, total questions, and question list based on current page number to update the frontend.
 curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"question":"Which country is the largest producer of vanilla?","answer":"Madagascar","difficulty":"3","category":"2"}'
 
 ```bash
